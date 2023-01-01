@@ -1,0 +1,28 @@
+{
+    "name": "Buscardor Sinonimos",
+    "description": "busca sinonimos online para la palabra o frase seleccionada",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "index.html"
+      },
+    "permissions": [
+      "contextMenus",
+      "storage",
+      "tabs"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "run_at": "document_idle",
+        "js": ["contentScript.js"]
+      }
+    ],
+    "host_permissions": [
+      "https://synonyms.reverso.net/sinonimo/es/"
+
+    ]
+}
